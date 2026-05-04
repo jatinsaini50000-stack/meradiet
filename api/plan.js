@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
   const { age, weight, goal, region, diet, conditions } = req.body;
   const prompt = `You are MeraDiet AI, a warm Indian nutrition coach. Create a 3-day meal plan for: Age: ${age}, Weight: ${weight}kg, Goal: ${goal}, Region: ${region}, Diet: ${diet}, Conditions: ${conditions || 'none'}. Write in Hindi-English mix with DAY 1, DAY 2, DAY 3 format using Indian portions (roti/katori). Add TIPS and AVOID KARO section.`;
